@@ -1,0 +1,13 @@
+E:\FolderOfQuang\QLTT\QLTT\bin\Debug\QLTT.exe.config
+E:\FolderOfQuang\QLTT\QLTT\bin\Debug\QLTT.exe
+E:\FolderOfQuang\QLTT\QLTT\bin\Debug\QLTT.pdb
+E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.csprojResolveAssemblyReference.cache
+E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.Properties.Resources.resources
+E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.csproj.GenerateResource.Cache
+E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.exe
+E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.pdb
+E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.DangNhap.resources
+E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.DangKy.resources
+E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.MainAdmin.resources
+E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.MainRoot.resources
+E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.MainUser.resources
