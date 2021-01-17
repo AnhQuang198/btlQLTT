@@ -16,5 +16,23 @@ namespace QLTT
         {
             InitializeComponent();
         }
+
+        private void thêmTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QLGiangVien form = new QLGiangVien();
+            form.Show();
+        }
+
+        private void thêmLớpHọcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QLLopHoc form = new QLLopHoc();
+            form.Show();
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DangNhap dn = new DangNhap();
+            dn.Show();
+        }
     }
 }

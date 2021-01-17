@@ -12,16 +12,28 @@ namespace QLTT
 {
     public partial class MainUser : Form
     {
-        GlobalFunction gf = new GlobalFunction();
-        string table = "view_class";
         public MainUser()
         {
             InitializeComponent();
         }
 
-        private void MainUser_Load(object sender, EventArgs e)
+        private void đăngKýLớpHọcToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            gf.HienthiDulieutrenDatagridView(table, grwClass);
+            LopHoc lop = new LopHoc();
+            lop.Show();
+        }
+
+        private void đăngKýThựcTậpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.OK)
+                this.Hide();
+            DangNhap frm = new DangNhap();
+            frm.Show();
         }
     }
 }

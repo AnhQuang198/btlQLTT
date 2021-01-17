@@ -14,7 +14,6 @@ namespace QLTT
         //Biến dùng chung:
         public string strCon = @"Data Source=DESKTOP-8Q53BL7\SQLEXPRESS;Initial Catalog=QLTT;Integrated Security=True";
         public SqlConnection myCnn = new SqlConnection();
-
         //Các hàm dùng chung
 
         //1. Hàm kết nối cơ sở dữ liệu
@@ -124,11 +123,11 @@ namespace QLTT
         //4. Các hàm thao tác dữ liệu
 
         //4.1. Xóa
-        public void Xoadulieu(string sTenbang, string sTentruongKhoa, string sGiatri)
+        public void deleteById(string sTenbang, string id)
         {
-            SqlCommand cmd = new SqlCommand(sTenbang, myCnn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue(sTentruongKhoa, sGiatri);
+            string query = "DELETE FROM '" + sTenbang + "' WHERE id ='" + id + "'";
+            SqlCommand cmd = new SqlCommand(query, myCnn);
+            cmd.CommandType = CommandType.Text;
             cmd.ExecuteNonQuery();
         }
     }

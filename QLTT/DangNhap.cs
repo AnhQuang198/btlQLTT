@@ -50,22 +50,32 @@ namespace QLTT
                 }
                 else
                 {
+                    SqlCommand cmd2 = new SqlCommand("sp_login_return_id", gf.myCnn);
+                    cmd2.CommandType = CommandType.StoredProcedure;
+                    cmd2.Parameters.Add(new SqlParameter("username", username));
+                    cmd2.Parameters.Add(new SqlParameter("password", password));
+                    int userId = (Int32)cmd2.ExecuteScalar();
+                    User.UserID = userId;
+                    if (role.Equals("none"))
+                    {
+                        MessageBox.Show("Tài khoản bị khóa!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                        txtUsername.Focus();
+                    }
                     if (role.Equals("USER"))
                     {
-                        MessageBox.Show("Đăng nhập thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        MessageBox.Show("Đăng nhập thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         this.Hide();
                         MainUser userScreen = new MainUser();
                         userScreen.Show();
                     }
                     else if (role.Equals("ADMIN")) {
-                        MessageBox.Show("Đăng nhập thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        MessageBox.Show("Đăng nhập thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         this.Hide();
                         MainAdmin adminScreen = new MainAdmin();
                         adminScreen.Show();
                     }
-                    else
-                    {
-                        MessageBox.Show("Đăng nhập thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    else if(role.Equals("ROOT")) {
+                        MessageBox.Show("Đăng nhập thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         this.Hide();
                         MainRoot rootScreen = new MainRoot();
                         rootScreen.Show();

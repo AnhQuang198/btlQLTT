@@ -11,3 +11,6 @@ E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.DangKy.resources
 E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.MainAdmin.resources
 E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.MainRoot.resources
 E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.MainUser.resources
+E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.LopHoc.resources
+E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.QLGiangVien.resources
+E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.QLLopHoc.resources
