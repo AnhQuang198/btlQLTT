@@ -45,20 +45,15 @@ namespace QLTT
                 cmd.Parameters.Add(new SqlParameter("password", password));
 
                 string role = (string)cmd.ExecuteScalar();
-                if (role == null) {
-                    MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                }
-                else
-                {
-                    SqlCommand cmd2 = new SqlCommand("sp_login_return_id", gf.myCnn);
-                    cmd2.CommandType = CommandType.StoredProcedure;
-                    cmd2.Parameters.Add(new SqlParameter("username", username));
-                    cmd2.Parameters.Add(new SqlParameter("password", password));
-                    int userId = (Int32)cmd2.ExecuteScalar();
-                    User.UserID = userId;
+                    //SqlCommand cmd2 = new SqlCommand("sp_login_return_id", gf.myCnn);
+                    //cmd2.CommandType = CommandType.StoredProcedure;
+                    //cmd2.Parameters.Add(new SqlParameter("username", username));
+                    //cmd2.Parameters.Add(new SqlParameter("password", password));
+                    //int userId = (Int32)cmd2.ExecuteScalar();
+                    //User.UserID = userId;
                     if (role.Equals("none"))
                     {
-                        MessageBox.Show("Tài khoản bị khóa!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                        MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         txtUsername.Focus();
                     }
                     if (role.Equals("USER"))
@@ -80,7 +75,6 @@ namespace QLTT
                         MainRoot rootScreen = new MainRoot();
                         rootScreen.Show();
                     }
-                }
             }
         }
 
