@@ -32,6 +32,7 @@
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thêmTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thêmLớpHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.càiĐặtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -51,6 +52,7 @@
             // hệThốngToolStripMenuItem
             // 
             this.hệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sinhViênToolStripMenuItem,
             this.thêmTàiKhoảnToolStripMenuItem,
             this.thêmLớpHọcToolStripMenuItem});
             this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
@@ -71,6 +73,13 @@
             this.thêmLớpHọcToolStripMenuItem.Text = "Lớp học";
             this.thêmLớpHọcToolStripMenuItem.Click += new System.EventHandler(this.thêmLớpHọcToolStripMenuItem_Click);
             // 
+            // sinhViênToolStripMenuItem
+            // 
+            this.sinhViênToolStripMenuItem.Name = "sinhViênToolStripMenuItem";
+            this.sinhViênToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sinhViênToolStripMenuItem.Text = "Sinh viên";
+            this.sinhViênToolStripMenuItem.Click += new System.EventHandler(this.sinhViênToolStripMenuItem_Click);
+            // 
             // càiĐặtToolStripMenuItem
             // 
             this.càiĐặtToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -82,7 +91,7 @@
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -110,5 +119,6 @@
         private System.Windows.Forms.ToolStripMenuItem thêmLớpHọcToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem càiĐặtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sinhViênToolStripMenuItem;
     }
 }

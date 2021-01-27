@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADoanhNghiep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADoanhNghiep.Designer.cs">
+      <DependentUpon>ADoanhNghiep.cs</DependentUpon>
+    </Compile>
     <Compile Include="DangKy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,11 +77,23 @@
     <Compile Include="MainRoot.Designer.cs">
       <DependentUpon>MainRoot.cs</DependentUpon>
     </Compile>
-    <Compile Include="LopHoc.cs">
+    <Compile Include="UCapNhat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LopHoc.Designer.cs">
-      <DependentUpon>LopHoc.cs</DependentUpon>
+    <Compile Include="UCapNhat.Designer.cs">
+      <DependentUpon>UCapNhat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UDoiMK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UDoiMK.Designer.cs">
+      <DependentUpon>UDoiMK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ULopHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ULopHoc.Designer.cs">
+      <DependentUpon>ULopHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="MainUser.cs">
       <SubType>Form</SubType>
@@ -97,7 +115,16 @@
     <Compile Include="QLLopHoc.Designer.cs">
       <DependentUpon>QLLopHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLSinhVien.Designer.cs">
+      <DependentUpon>QLSinhVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="ADoanhNghiep.resx">
+      <DependentUpon>ADoanhNghiep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DangKy.resx">
       <DependentUpon>DangKy.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,8 +137,14 @@
     <EmbeddedResource Include="MainRoot.resx">
       <DependentUpon>MainRoot.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LopHoc.resx">
-      <DependentUpon>LopHoc.cs</DependentUpon>
+    <EmbeddedResource Include="UCapNhat.resx">
+      <DependentUpon>UCapNhat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UDoiMK.resx">
+      <DependentUpon>UDoiMK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ULopHoc.resx">
+      <DependentUpon>ULopHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainUser.resx">
       <DependentUpon>MainUser.cs</DependentUpon>
@@ -130,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLLopHoc.resx">
       <DependentUpon>QLLopHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLSinhVien.resx">
+      <DependentUpon>QLSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

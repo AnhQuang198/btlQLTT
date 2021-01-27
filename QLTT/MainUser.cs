@@ -19,7 +19,7 @@ namespace QLTT
 
         private void đăngKýLớpHọcToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LopHoc lop = new LopHoc();
+            ULopHoc lop = new ULopHoc();
             lop.Show();
         }
 
@@ -34,6 +34,18 @@ namespace QLTT
                 this.Hide();
             DangNhap frm = new DangNhap();
             frm.Show();
+        }
+
+        private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UDoiMK form = new UDoiMK();
+            form.Show();
+        }
+
+        private void cậpNhậtThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UCapNhat form = new UCapNhat();
+            form.Show();
         }
     }
 }

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace QLTT
 {
-    public partial class MainAdmin : Form
+    public partial class UCapNhat : Form
     {
-        public MainAdmin()
+        public UCapNhat()
         {
             InitializeComponent();
-        }
-
-        private void doanhNghiệpThựcTậpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

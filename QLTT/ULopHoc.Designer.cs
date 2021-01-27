@@ -1,6 +1,6 @@
 ﻿namespace QLTT
 {
-    partial class LopHoc
+    partial class ULopHoc
     {
         /// <summary>
         /// Required designer variable.

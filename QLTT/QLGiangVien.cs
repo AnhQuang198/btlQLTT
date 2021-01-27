@@ -58,11 +58,13 @@ namespace QLTT
                 return;
             string id = grwTeacher.CurrentRow.Cells[0].Value.ToString();
             string name = txtName.Text;
+            string password = txtPassword.Text;
             gf.KetnoiCSDL();
             SqlCommand cmd = new SqlCommand("sp_edit_teacher", gf.myCnn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("id", id));
             cmd.Parameters.Add(new SqlParameter("name", name));
+            cmd.Parameters.Add(new SqlParameter("password", password));
             cmd.ExecuteNonQuery();
             gf.HienthiDulieutrenDatagridView(table, grwTeacher);
 

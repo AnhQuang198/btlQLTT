@@ -45,13 +45,8 @@ namespace QLTT
                 cmd.Parameters.Add(new SqlParameter("password", password));
 
                 string role = (string)cmd.ExecuteScalar();
-                    //SqlCommand cmd2 = new SqlCommand("sp_login_return_id", gf.myCnn);
-                    //cmd2.CommandType = CommandType.StoredProcedure;
-                    //cmd2.Parameters.Add(new SqlParameter("username", username));
-                    //cmd2.Parameters.Add(new SqlParameter("password", password));
-                    //int userId = (Int32)cmd2.ExecuteScalar();
-                    //User.UserID = userId;
-                    if (role.Equals("none"))
+                
+                if (role.Equals("none"))
                     {
                         MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         txtUsername.Focus();
@@ -60,22 +55,35 @@ namespace QLTT
                     {
                         MessageBox.Show("Đăng nhập thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         this.Hide();
-                        MainUser userScreen = new MainUser();
+                    getUserId(username, password);
+                    MainUser userScreen = new MainUser();
                         userScreen.Show();
                     }
                     else if (role.Equals("ADMIN")) {
                         MessageBox.Show("Đăng nhập thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         this.Hide();
-                        MainAdmin adminScreen = new MainAdmin();
+                    getUserId(username, password);
+                    MainAdmin adminScreen = new MainAdmin();
                         adminScreen.Show();
+
                     }
                     else if(role.Equals("ROOT")) {
                         MessageBox.Show("Đăng nhập thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         this.Hide();
-                        MainRoot rootScreen = new MainRoot();
+                    getUserId(username, password);
+                    MainRoot rootScreen = new MainRoot();
                         rootScreen.Show();
                     }
             }
+        }
+
+        private void getUserId(string username, string password) {
+            SqlCommand cmd2 = new SqlCommand("sp_login_return_id", gf.myCnn);
+            cmd2.CommandType = CommandType.StoredProcedure;
+            cmd2.Parameters.Add(new SqlParameter("username", username));
+            cmd2.Parameters.Add(new SqlParameter("password", password));
+            int userId = (Int32)cmd2.ExecuteScalar();
+            User.UserID = userId;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)

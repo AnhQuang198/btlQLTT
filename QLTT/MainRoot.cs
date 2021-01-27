@@ -34,5 +34,11 @@ namespace QLTT
             DangNhap dn = new DangNhap();
             dn.Show();
         }
+
+        private void sinhViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QLSinhVien form = new QLSinhVien();
+            form.Show();
+        }
     }
 }

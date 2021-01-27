@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace QLTT
 {
-    public partial class LopHoc : Form
+    public partial class ULopHoc : Form
     {
         GlobalFunction gf = new GlobalFunction();
         string table = "view_class";
-        public LopHoc()
+        public ULopHoc()
         {
             InitializeComponent();
         }
@@ -48,13 +48,17 @@ namespace QLTT
             int userId = User.UserID;
             int studentId = getStudentByUserId(userId);
 
-            //SqlCommand cmd = new SqlCommand("sp_add_student_class", gf.myCnn);
-            //cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.Add(new SqlParameter("studentId", 5));
-            //cmd.Parameters.Add(new SqlParameter("classId", classId));
-            //cmd.ExecuteNonQuery();
+            if (checkStudentRegisterClass(classId, studentId) == false)
+            {
+                SqlCommand cmd = new SqlCommand("sp_add_student_class", gf.myCnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("studentId", studentId));
+                cmd.Parameters.Add(new SqlParameter("classId", classId));
+                cmd.ExecuteNonQuery();
 
-            MessageBox.Show(studentId.ToString(), "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                MessageBox.Show("Đăng ký lớp thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                gf.HienthiDulieutrenDatagridView(table, grwClass);
+            }
         }
 
         private int getStudentByUserId(int userId)
@@ -62,13 +66,24 @@ namespace QLTT
             string sql = "select id from tblStudent where userId='" + userId + "'";
             SqlCommand cmd = new SqlCommand(sql, gf.myCnn);
             cmd.CommandType = CommandType.Text;
-
             int id = (int)cmd.ExecuteScalar();
-
-            //int id = Convert.ToInt32(cmd.ExecuteScalar());
-
-            MessageBox.Show(id.ToString(), "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             return id;
+        }
+
+        private bool checkStudentRegisterClass(int classId, int studentId) {
+            bool flag = false;
+            gf.KetnoiCSDL();
+            SqlCommand cmd = new SqlCommand("sp_check_regis_class", gf.myCnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("studentId", studentId));
+            cmd.Parameters.Add(new SqlParameter("classId", classId));
+            int id = (int)cmd.ExecuteScalar();
+            if(id > 0)
+            {
+                MessageBox.Show("Bạn đã đăng ký lớp này!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                flag = true;
+            }
+            return flag;
         }
     }
 }
