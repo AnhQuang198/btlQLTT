@@ -52,6 +52,7 @@
     <Compile Include="ADoanhNghiep.Designer.cs">
       <DependentUpon>ADoanhNghiep.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComboboxItem.cs" />
     <Compile Include="DangKy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +83,12 @@
     </Compile>
     <Compile Include="UCapNhat.Designer.cs">
       <DependentUpon>UCapNhat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UDoanhNghiep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UDoanhNghiep.Designer.cs">
+      <DependentUpon>UDoanhNghiep.cs</DependentUpon>
     </Compile>
     <Compile Include="UDoiMK.cs">
       <SubType>Form</SubType>
@@ -139,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCapNhat.resx">
       <DependentUpon>UCapNhat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UDoanhNghiep.resx">
+      <DependentUpon>UDoanhNghiep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UDoiMK.resx">
       <DependentUpon>UDoiMK.cs</DependentUpon>

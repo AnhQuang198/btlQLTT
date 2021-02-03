@@ -25,7 +25,8 @@ namespace QLTT
 
         private void đăngKýThựcTậpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            UDoanhNghiep form = new UDoanhNghiep();
+            form.Show();
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)

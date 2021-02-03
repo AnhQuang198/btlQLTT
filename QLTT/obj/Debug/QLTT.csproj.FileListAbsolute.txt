@@ -17,3 +17,5 @@ E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.QLSinhVien.resources
 E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.UDoiMK.resources
 E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.ULopHoc.resources
 E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.UCapNhat.resources
+E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.ADoanhNghiep.resources
+E:\FolderOfQuang\QLTT\QLTT\obj\Debug\QLTT.UDoanhNghiep.resources

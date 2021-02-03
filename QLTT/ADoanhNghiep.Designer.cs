@@ -29,27 +29,23 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.grwDN = new System.Windows.Forms.DataGridView();
+            this.grwCompany = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtAdd = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateEnd = new System.Windows.Forms.DateTimePicker();
-            this.dateStart = new System.Windows.Forms.DateTimePicker();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grwDN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grwCompany)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.grwDN);
+            this.groupBox1.Controls.Add(this.grwCompany);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(787, 224);
@@ -57,13 +53,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Doanh Nghiệp";
             // 
-            // grwDN
+            // grwCompany
             // 
-            this.grwDN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grwDN.Location = new System.Drawing.Point(6, 19);
-            this.grwDN.Name = "grwDN";
-            this.grwDN.Size = new System.Drawing.Size(775, 199);
-            this.grwDN.TabIndex = 0;
+            this.grwCompany.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grwCompany.Location = new System.Drawing.Point(6, 19);
+            this.grwCompany.Name = "grwCompany";
+            this.grwCompany.Size = new System.Drawing.Size(775, 199);
+            this.grwCompany.TabIndex = 0;
+            this.grwCompany.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grwCompany_CellClick);
             // 
             // label1
             // 
@@ -113,38 +110,6 @@
             this.txtPhone.Size = new System.Drawing.Size(246, 20);
             this.txtPhone.TabIndex = 6;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 400);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Thời gian bắt đầu:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 450);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Thời gian kết thúc:";
-            // 
-            // dateEnd
-            // 
-            this.dateEnd.Location = new System.Drawing.Point(128, 444);
-            this.dateEnd.Name = "dateEnd";
-            this.dateEnd.Size = new System.Drawing.Size(246, 20);
-            this.dateEnd.TabIndex = 10;
-            // 
-            // dateStart
-            // 
-            this.dateStart.Location = new System.Drawing.Point(128, 394);
-            this.dateStart.Name = "dateStart";
-            this.dateStart.Size = new System.Drawing.Size(246, 20);
-            this.dateStart.TabIndex = 11;
-            // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(503, 252);
@@ -179,14 +144,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 485);
+            this.ClientSize = new System.Drawing.Size(811, 390);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.dateStart);
-            this.Controls.Add(this.dateEnd);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtAdd);
             this.Controls.Add(this.txtName);
@@ -198,7 +159,7 @@
             this.Text = "ADoanhNghiep";
             this.Load += new System.EventHandler(this.ADoanhNghiep_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grwDN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grwCompany)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,17 +168,13 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView grwDN;
+        private System.Windows.Forms.DataGridView grwCompany;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtAdd;
         private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateEnd;
-        private System.Windows.Forms.DateTimePicker dateStart;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDel;
