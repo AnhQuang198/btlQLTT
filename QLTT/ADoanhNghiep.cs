@@ -40,15 +40,23 @@ namespace QLTT
             string address = txtAdd.Text;
             int userId = User.UserID;
 
-            gf.KetnoiCSDL();
-            SqlCommand cmd = new SqlCommand("sp_add_company", gf.myCnn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add(new SqlParameter("name", name));
-            cmd.Parameters.Add(new SqlParameter("phone", phone));
-            cmd.Parameters.Add(new SqlParameter("address", address));
-            cmd.Parameters.Add(new SqlParameter("userId", userId));
-            cmd.ExecuteNonQuery();
-            gf.HienthiDulieutrenDatagridView(table, grwCompany);
+            if(name != "" && phone != "" && address != "")
+            {
+                gf.KetnoiCSDL();
+                SqlCommand cmd = new SqlCommand("sp_add_company", gf.myCnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("name", name));
+                cmd.Parameters.Add(new SqlParameter("phone", phone));
+                cmd.Parameters.Add(new SqlParameter("address", address));
+                cmd.Parameters.Add(new SqlParameter("userId", userId));
+                cmd.ExecuteNonQuery();
+                gf.HienthiDulieutrenDatagridView(table, grwCompany);
+            }
+            else
+            {
+                if (MessageBox.Show("Vui lòng nhập đủ thông tin!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.OK);
+            }
+            
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

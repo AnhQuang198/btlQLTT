@@ -30,7 +30,7 @@ namespace QLTT
             Boolean status = true;
             String role = "USER";
 
-            if (txtUsername.Text == "" || txtPassword.Text == "" || txtRePassword.Text == "" || txtSvName.Text == "" || txtSvCode.Text == "")
+            if (txtUsername.Text == "" || txtPassword.Text == "" || txtRePassword.Text == "" || txtSvName.Text == "" || txtSvCode.Text == "" || gf.checkLengthText(password) || gf.checkLengthText(rePassword))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 txtUsername.Focus();

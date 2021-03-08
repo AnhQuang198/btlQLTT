@@ -22,21 +22,9 @@ namespace QLTT
 
         private void UDoanhNghiep_Load(object sender, EventArgs e)
         {
-            ComboboxItem intern = new ComboboxItem();
-            intern.Text = "INTERN";
-            intern.Value = "INTERN";
-            position.Items.Add(intern);
-
-            ComboboxItem cnpm = new ComboboxItem();
-            cnpm.Text = "CNPM";
-            cnpm.Value = "CNPM";
-            specilized.Items.Add(cnpm);
-
-            ComboboxItem cndpt = new ComboboxItem();
-            cndpt.Text = "CNPM";
-            cndpt.Value = "CNPM";
-            specilized.Items.Add(cndpt);
-
+            position.SelectedIndex = 0;
+            specilized.SelectedIndex = 0;
+            specilized.SelectedIndex = 1;
             gf.HienthiDulieutrenDatagridView(table, grwCompany);
         }
 
@@ -44,25 +32,55 @@ namespace QLTT
         {
             if (grwCompany.Rows.Count <= 0)
                 return;
-            string id = grwCompany.CurrentRow.Cells[0].Value.ToString();
+            int id = Int32.Parse(grwCompany.CurrentRow.Cells[0].Value.ToString());
             int userId = User.UserID;
-            gf.KetnoiCSDL();
-            SqlCommand cmd = new SqlCommand("sp_add_student_company", gf.myCnn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add(new SqlParameter("companyId", id));
-            cmd.Parameters.Add(new SqlParameter("userId", userId));
-            cmd.Parameters.Add(new SqlParameter("timeStart", dateStart.Value.ToString("yyyy-MM-dd")));
-            cmd.Parameters.Add(new SqlParameter("timeEnd", dateEnd.Value.ToString("yyyy-MM-dd")));
-            cmd.Parameters.Add(new SqlParameter("position", position.SelectedValue.ToString()));
-            cmd.Parameters.Add(new SqlParameter("specialized", specilized.SelectedValue.ToString()));
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Đăng ký thực tập thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-            gf.HienthiDulieutrenDatagridView(table, grwCompany);
+            int studentId = getStudentByUserId(userId);
+            if (checkStudentRegisterCompany(id, studentId) == false)
+            {
+                gf.KetnoiCSDL();
+                SqlCommand cmd = new SqlCommand("sp_add_student_company", gf.myCnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("companyId", id));
+                cmd.Parameters.Add(new SqlParameter("userId", userId));
+                cmd.Parameters.Add(new SqlParameter("timeStart", dateStart.Value.ToString("yyyy-MM-dd")));
+                cmd.Parameters.Add(new SqlParameter("timeEnd", dateEnd.Value.ToString("yyyy-MM-dd")));
+                cmd.Parameters.Add(new SqlParameter("position", position.SelectedItem.ToString()));
+                cmd.Parameters.Add(new SqlParameter("specialized", specilized.SelectedItem.ToString()));
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Đăng ký thực tập thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                gf.HienthiDulieutrenDatagridView(table, grwCompany);
+            }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private bool checkStudentRegisterCompany(int companyId, int studentId)
+        {
+            bool flag = false;
+            gf.KetnoiCSDL();
+            SqlCommand cmd = new SqlCommand("sp_check_regis_company", gf.myCnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("studentId", studentId));
+            cmd.Parameters.Add(new SqlParameter("companyId", companyId));
+            int id = (int)cmd.ExecuteScalar();
+            if (id > 0)
+            {
+                MessageBox.Show("Bạn đã đăng ký thực tập tại doanh nghiệp này!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                flag = true;
+            }
+            return flag;
+        }
+
+        private int getStudentByUserId(int userId)
+        {
+            string sql = "select id from tblStudent where userId='" + userId + "'";
+            SqlCommand cmd = new SqlCommand(sql, gf.myCnn);
+            cmd.CommandType = CommandType.Text;
+            int id = (int)cmd.ExecuteScalar();
+            return id;
         }
     }
 }

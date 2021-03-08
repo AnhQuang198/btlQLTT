@@ -40,11 +40,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(289, 36);
+            this.label1.Location = new System.Drawing.Point(268, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Đổi Mật Khẩu";
+            this.label1.Text = "ĐỔI MẬT KHẨU";
             // 
             // txtNewPass
             // 
@@ -94,7 +94,7 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(146, 23);
             this.btnExit.TabIndex = 8;
-            this.btnExit.Text = "Thoát";
+            this.btnExit.Text = "Đóng";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 

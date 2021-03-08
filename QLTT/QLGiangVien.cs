@@ -27,29 +27,36 @@ namespace QLTT
             String name = txtName.Text.Trim();
             Boolean status = true;
             String role = "ADMIN";
-
-            gf.KetnoiCSDL();
-            SqlCommand cmd = new SqlCommand("sp_register_teacher", gf.myCnn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add(new SqlParameter("username", username));
-            cmd.Parameters.Add(new SqlParameter("password", password));
-            cmd.Parameters.Add(new SqlParameter("role", role));
-            cmd.Parameters.Add(new SqlParameter("status", status));
-            cmd.Parameters.Add(new SqlParameter("name", name));
-
-            int ReturnCode = (int)cmd.ExecuteScalar();
-            if (ReturnCode == -1)
+            if(username != "" && password != "" && name != "")
             {
-                MessageBox.Show("Tài khoản đã tồn tại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                txtUsername.Focus();
+                gf.KetnoiCSDL();
+                SqlCommand cmd = new SqlCommand("sp_register_teacher", gf.myCnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("username", username));
+                cmd.Parameters.Add(new SqlParameter("password", password));
+                cmd.Parameters.Add(new SqlParameter("role", role));
+                cmd.Parameters.Add(new SqlParameter("status", status));
+                cmd.Parameters.Add(new SqlParameter("name", name));
+
+                int ReturnCode = (int)cmd.ExecuteScalar();
+                if (ReturnCode == -1)
+                {
+                    MessageBox.Show("Tài khoản đã tồn tại!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    txtUsername.Focus();
+                }
+                else
+                {
+                    gf.HienthiDulieutrenDatagridView(table, grwTeacher);
+                    txtName.Text = null;
+                    txtPassword.Text = null;
+                    txtUsername.Text = null;
+                }
             }
             else
             {
-                gf.HienthiDulieutrenDatagridView(table, grwTeacher);
-                txtName.Text = null;
-                txtPassword.Text = null;
-                txtUsername.Text = null;
+                MessageBox.Show("Vui lòng nhập dủ thông tin!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             }
+
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -59,7 +66,7 @@ namespace QLTT
             string id = grwTeacher.CurrentRow.Cells[0].Value.ToString();
             string name = txtName.Text;
             string password = txtPassword.Text;
-            if (name != "" && password != null)
+            if (name != "" && password != "")
             {
                 gf.KetnoiCSDL();
                 SqlCommand cmd = new SqlCommand("sp_edit_teacher", gf.myCnn);
@@ -69,6 +76,8 @@ namespace QLTT
                 cmd.Parameters.Add(new SqlParameter("password", password));
                 cmd.ExecuteNonQuery();
                 gf.HienthiDulieutrenDatagridView(table, grwTeacher);
+                MessageBox.Show("Cập nhật tài khoản thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
             }
             else
             {
@@ -96,6 +105,7 @@ namespace QLTT
             cmd.Parameters.Add(new SqlParameter("teacherId", id));
             cmd.Parameters.Add(new SqlParameter("status", status));
             cmd.ExecuteNonQuery();
+            MessageBox.Show("Khóa/Mở khóa tài khoản thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             gf.HienthiDulieutrenDatagridView(table, grwTeacher);
         }
 

@@ -28,19 +28,31 @@ namespace QLTT
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string name = txtName.Text;
+            string svRegMin = txtSvRegMax.Text;
+            string svRegMax = txtSvRegMax.Text;
+            if(name != "" && svRegMax != "" && svRegMin != "")
+            {
                 SqlCommand cmd = new SqlCommand("sp_add_class", gf.myCnn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("name", txtName.Text));
-                cmd.Parameters.Add(new SqlParameter("svMin", txtSvRegMin.Text));
-                cmd.Parameters.Add(new SqlParameter("svMax", txtSvRegMax.Text));
+                cmd.Parameters.Add(new SqlParameter("name", name));
+                cmd.Parameters.Add(new SqlParameter("svMin", svRegMin));
+                cmd.Parameters.Add(new SqlParameter("svMax", svRegMax));
                 cmd.Parameters.Add(new SqlParameter("gvName", comboBox1.SelectedValue));
                 cmd.Parameters.Add(new SqlParameter("time", dateTimeline.Value.ToString("yyyy-MM-dd")));
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Thêm thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 gf.HienthiDulieutrenDatagridView(table, grwClass);
                 txtName.Text = null;
                 txtSvRegMin.Text = null;
                 txtSvRegMax.Text = null;
                 cmd.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            }
+                
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -58,6 +70,7 @@ namespace QLTT
             cmd.Parameters.Add(new SqlParameter("time", dateTimeline.Value.ToString("yyyy-MM-dd")));
             cmd.ExecuteNonQuery();
             gf.HienthiDulieutrenDatagridView(table, grwClass);
+            MessageBox.Show("Cập nhật thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

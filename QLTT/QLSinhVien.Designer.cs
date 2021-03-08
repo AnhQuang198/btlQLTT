@@ -30,7 +30,6 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.grwStudent = new System.Windows.Forms.DataGridView();
-            this.btnDel = new System.Windows.Forms.Button();
             this.btnLock = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grwStudent)).BeginInit();
@@ -54,21 +53,11 @@
             this.grwStudent.Size = new System.Drawing.Size(720, 223);
             this.grwStudent.TabIndex = 0;
             // 
-            // btnDel
-            // 
-            this.btnDel.Location = new System.Drawing.Point(425, 275);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(237, 23);
-            this.btnDel.TabIndex = 10;
-            this.btnDel.Text = "Xóa";
-            this.btnDel.UseVisualStyleBackColor = true;
-            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
-            // 
             // btnLock
             // 
-            this.btnLock.Location = new System.Drawing.Point(76, 275);
+            this.btnLock.Location = new System.Drawing.Point(66, 286);
             this.btnLock.Name = "btnLock";
-            this.btnLock.Size = new System.Drawing.Size(240, 23);
+            this.btnLock.Size = new System.Drawing.Size(605, 23);
             this.btnLock.TabIndex = 11;
             this.btnLock.Text = "Khóa/Mở Tài Khoản";
             this.btnLock.UseVisualStyleBackColor = true;
@@ -80,7 +69,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(756, 348);
             this.Controls.Add(this.btnLock);
-            this.Controls.Add(this.btnDel);
             this.Controls.Add(this.groupBox1);
             this.Name = "QLSinhVien";
             this.Text = "QLSinhVien";
@@ -95,7 +83,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView grwStudent;
-        private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnLock;
     }
 }

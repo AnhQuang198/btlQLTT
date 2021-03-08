@@ -21,8 +21,7 @@ namespace QLTT
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn thoát không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.OK)
-                this.Close();
+            this.Close();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -30,7 +29,7 @@ namespace QLTT
             string newPass = txtNewPass.Text;
             string rePass = txtRePass.Text;
             int userId = User.UserID;
-            if ( newPass == "" || rePass == "")
+            if ( newPass == "" || rePass == "" || gf.checkLengthText(newPass) || gf.checkLengthText(rePass))
             {
                 MessageBox.Show("Vui lòng nhập đủ thông tin!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             }else
@@ -48,6 +47,7 @@ namespace QLTT
                     cmd.Parameters.Add(new SqlParameter("password", newPass));
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Cập nhật mật khẩu thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    this.Close();
                 }
             }
         }

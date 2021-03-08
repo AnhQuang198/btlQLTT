@@ -35,6 +35,7 @@ namespace QLTT
                 this.Hide();
             DangNhap frm = new DangNhap();
             frm.Show();
+            this.Close();
         }
 
         private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -46,6 +47,18 @@ namespace QLTT
         private void cậpNhậtThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UCapNhat form = new UCapNhat();
+            form.Show();
+        }
+
+        private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UThongTin form = new UThongTin();
+            form.Show();
+        }
+
+        private void báoCáoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UBaoCao form = new UBaoCao();
             form.Show();
         }
     }

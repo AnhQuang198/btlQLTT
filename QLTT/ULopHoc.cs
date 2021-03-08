@@ -23,23 +23,6 @@ namespace QLTT
         private void MainUser_Load(object sender, EventArgs e)
         {
             gf.HienthiDulieutrenDatagridView(table, grwClass);
-            txtClassName.ReadOnly = true;
-            txtJoined.ReadOnly = true;
-            txtGiangVien.ReadOnly = true;
-            txtTime.ReadOnly = true;
-        }
-
-        private void grwClass_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (grwClass.Rows.Count <= 0)
-                return;
-            txtClassName.Text = grwClass.CurrentRow.Cells[1].Value.ToString();
-            txtGiangVien.Text = grwClass.CurrentRow.Cells[2].Value.ToString();
-            txtTime.Text = grwClass.CurrentRow.Cells[6].Value.ToString();
-            string svJoined = grwClass.CurrentRow.Cells[5].Value.ToString();
-            string svRegMax = grwClass.CurrentRow.Cells[4].Value.ToString();
-            string sv = svJoined + "/" + svRegMax;
-            txtJoined.Text = sv;
         }
 
         private void btnJoined_Click(object sender, EventArgs e)
@@ -84,6 +67,11 @@ namespace QLTT
                 flag = true;
             }
             return flag;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

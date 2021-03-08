@@ -22,5 +22,12 @@ namespace QLTT
             ADoanhNghiep form = new ADoanhNghiep();
             form.Show();
         }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DangNhap form = new DangNhap();
+            form.Show();
+            this.Hide();
+        }
     }
 }

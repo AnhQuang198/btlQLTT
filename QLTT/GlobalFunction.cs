@@ -12,7 +12,7 @@ namespace QLTT
     class GlobalFunction
     {
         //Biến dùng chung:
-        public string strCon = @"Data Source=DESKTOP-8Q53BL7\SQLEXPRESS;Initial Catalog=QLTT;Integrated Security=True";
+        public string strCon = @"Data Source=.\SQLEXPRESS;Initial Catalog=QLTT;Integrated Security=True";
         public SqlConnection myCnn = new SqlConnection();
         //Các hàm dùng chung
 
@@ -129,6 +129,16 @@ namespace QLTT
             SqlCommand cmd = new SqlCommand(query, myCnn);
             cmd.CommandType = CommandType.Text;
             cmd.ExecuteNonQuery();
+        }
+
+        public bool checkLengthText(string text)
+        {
+            if(text.Length < 6)
+            {
+                MessageBox.Show("Vui lòng nhập nhiều hơn 6 ký tự!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                return true;
+            }
+            return false;
         }
     }
 }
