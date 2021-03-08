@@ -20,6 +20,7 @@ namespace QLTT
         private void đăngKýLớpHọcToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ULopHoc lop = new ULopHoc();
+            lop.MdiParent = this.MdiParent;
             lop.Show();
         }
 
