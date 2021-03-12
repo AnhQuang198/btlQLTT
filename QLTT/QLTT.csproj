@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABaoCao.Designer.cs">
+      <DependentUpon>ABaoCao.cs</DependentUpon>
+    </Compile>
     <Compile Include="ADoanhNghiep.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     <Compile Include="UThongTin.Designer.cs">
       <DependentUpon>UThongTin.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ABaoCao.resx">
+      <DependentUpon>ABaoCao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ADoanhNghiep.resx">
       <DependentUpon>ADoanhNghiep.cs</DependentUpon>
     </EmbeddedResource>

@@ -29,5 +29,11 @@ namespace QLTT
             form.Show();
             this.Hide();
         }
+
+        private void kếtQuảHọcTậpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ABaoCao form = new ABaoCao();
+            form.Show();
+        }
     }
 }

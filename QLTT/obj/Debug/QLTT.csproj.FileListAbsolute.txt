@@ -43,3 +43,4 @@ D:\code\C#\btlQLTT\QLTT\obj\Debug\QLTT.exe
 D:\code\C#\btlQLTT\QLTT\obj\Debug\QLTT.pdb
 D:\code\C#\btlQLTT\QLTT\obj\Debug\QLTT.UThongTin.resources
 D:\code\C#\btlQLTT\QLTT\obj\Debug\QLTT.UBaoCao.resources
+D:\code\C#\btlQLTT\QLTT\obj\Debug\QLTT.ABaoCao.resources
